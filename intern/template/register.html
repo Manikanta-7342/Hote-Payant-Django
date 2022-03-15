@@ -1,0 +1,228 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registeration</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <form action="register" method="post">
+        {% csrf_token %}
+
+        <input type="text" name="first_name" placeholder="First Name"><br>
+        <input type="text" name="last_name" placeholder="Last Name"><br>
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="email" name="email" placeholder="email"><br>
+        <input type="password" name="password1" placeholder="Password"><br>
+        <input type="password" name="password2" placeholder="Confirm Password"><br>
+        <input type="Submit">
+
+    </form>
+
+    <div>
+        {% for message in messages %}
+        <h3> {{message}}  </h3>
+        {% endfor %}
+    </div>
+
+</body>
+</html> -->
+{% load static %}
+
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create account - HotePayant Dashboard</title>
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="{% static 'styles/tailwind.output.css' %}" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="{% static 'js/init-alpine.js' %}"></script>
+  </head>
+  <body>
+    <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
+      <div
+        class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
+      >
+        <div class="flex flex-col overflow-y-auto md:flex-row">
+          <div class="h-32 md:h-auto md:w-1/2">
+            <img
+              aria-hidden="true"
+              class="hidden object-cover w-full h-full dark:block"
+              src="{% static 'images/login-office.png' %}"
+              alt="Office"
+            />
+          </div>
+          <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+            <div class="w-full">
+              <a href="/"><img src="{% static 'images/Hôte Payant1.png' %}"></a>
+              <h1
+                class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200"
+              >
+                Create account
+              </h1>
+              <div style="text-align: center;color:Red;">
+                {% for message in messages %}
+                <h3> {{message}}  </h3>
+                {% endfor %}
+        </div>
+                <label class="block text-sm">
+                  <span class="text-gray-700 dark:text-gray-400">
+                    Account Type
+                  </span>
+                  <select
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none dark:text-gray-300 focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                  >
+                    <option>Manager</option>
+                    <!--<option>Newbie</option>-->
+                    <option>Student</option>
+                  </select>
+                </label><br>
+                <form id="myForm"  action="register" method="post">
+                        {% csrf_token %}
+              </label>
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Username</span>
+
+                <input name="username" type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="User Name" required
+                  
+                />
+                <br>
+              </label>
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Email</span>
+                <input type="email" name="email"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="username@gmail.com" required
+                />
+                
+              </label>
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Password</span>
+                <input name="password1"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="***************"
+                  type="password" required
+                />
+               
+              </label>
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                  Confirm password
+                </span>
+                <input name="password2"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="***************"
+                  type="password" required
+                />
+              </label>
+
+              <div class="flex mt-6 text-sm">
+                <label class="flex items-center dark:text-gray-400">
+                  <input
+                    type="checkbox"
+                    class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                    required
+                  />
+                  <span class="ml-2">
+                    I agree to the
+                    <span class="underline">privacy policy</span>
+                  </span>
+                </label>
+              </div>
+              <input type="submit"
+              class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+               >
+              
+              <!--<a
+              
+              href="../../../index.html"
+            >
+              Cancel
+            </a>-->
+          </form>
+              <hr class="my-8" />
+              <p class="mt-4">
+                <a
+                  class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
+                  href="login"
+                >
+                  Already have an account? Login
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      /* function validate()
+      {
+        var pss1=document.getElementById("pass1");
+        var pss2=document.getElementById("pass2");
+        var em=document.getElementById("mail");
+        var ptr=/^[A-Z a-z]*\d{0,2}@(gmail)\.(com)$/gm;
+        //var ptr1=/^[A-Z][a-z]{2,100}@(gmail)\.(com)$/gm;
+        var ptr2=/[A-Z a-z]*[@*_#\$%]\d{2,10}/;
+        if(em.value.trim()=='')
+        {
+          alert("You have not Entered Email");
+          em.value="";
+          em.style.border="2px solid red";
+          return false;
+        }
+        else if(pss1.value.trim()=='')
+        {
+          alert("You have not Entered Password");
+          pss1.value="";
+          em.style.border="0px solid white";
+          pss1.style.border="2px solid red";
+          return false;
+        }
+        else if(em.value.match(ptr))
+        {
+          if(pss1.value.match(ptr2))
+          {
+            if(pss1.value == pss2.value)
+            {
+              return true;
+            }
+            else{
+              pss2.style.border="2px solid red";
+              alert("Password not matched");
+          return false;
+            }
+          }
+          else{
+            document.getElementById("usr").style.visibility="hidden";
+            pss1.style.border="2px solid red";
+            alert("Password is weak\nPlease enter:\n1.One Uppercase letter\n2.One Special letter\n3.Atleat one digit");
+         //document.getElementById("visi").style.visibility="visible";
+          return false;
+            }
+        }
+        else if(!em.value.match(ptr)){
+          document.getElementById("usr").style.visibility="visible";
+          return false;
+        }
+      }
+      function reset1()
+      { 
+        window.location="create-account.html";
+      }*/
+    </script> 
+  </body>
+</html>
