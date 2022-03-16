@@ -1,1 +1,1 @@
-web: gunicorn HotePayant.wsgi --log-file -
+web: gunicorn intern.wsgi --log-file -
