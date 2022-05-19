@@ -1,5 +1,5 @@
 # Travello-Web Development(Back End)
-Project Name                      :  Hote Payant
+Project Name                      :  Travello
 
 Language Used                     :  Python-Django,
 
