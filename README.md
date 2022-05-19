@@ -1,4 +1,4 @@
-# Travello-Web Development(Back End)
+# Travello-Web Development(Full Stack Development)
 Project Name                      :  Travello
 
 Language Used                     :  Python-Django, CSS, HTML, JavaScript
