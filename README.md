@@ -1,7 +1,7 @@
 # Travello-Web Development(Back End)
 Project Name                      :  Travello
 
-Language Used                     :  Python-Django,
+Language Used                     :  Python-Django, CSS, HTML, JavaScript
 
 Database                          :  Postgres
 
