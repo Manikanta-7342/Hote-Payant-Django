@@ -3,7 +3,7 @@ Project Name                      :  Travello
 
 Language Used                     :  Python-Django, CSS, HTML, JavaScript
 
-Database                          :  Postgres
+Database                          :  Postgresql
 
 User Interface Design             :  HTML,CSS,JAVASCRIPT
 
